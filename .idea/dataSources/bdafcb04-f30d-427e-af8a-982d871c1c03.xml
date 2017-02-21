@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="blog_development@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="blog_development">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="blog_test"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="simple_development"/>
+    <schema id="8" parent="1" name="simple_test"/>
+    <schema id="9" parent="1" name="sys"/>
+    <table id="10" parent="2" name="ar_internal_metadata"/>
+    <table id="11" parent="2" name="companies"/>
+    <table id="12" parent="2" name="material_names"/>
+    <table id="13" parent="2" name="materials"/>
+    <table id="14" parent="2" name="plant_materials"/>
+    <table id="15" parent="2" name="running_batches"/>
+    <table id="16" parent="2" name="schema_migrations"/>
+    <table id="17" parent="2" name="stloc_materials"/>
+    <table id="18" parent="2" name="tables"/>
+    <table id="19" parent="2" name="users"/>
+    <table id="20" parent="2" name="valuation_materials"/>
+    <column id="21" parent="10" name="key">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="22" parent="10" name="value">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="23" parent="10" name="created_at">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="10" name="updated_at">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="11" name="code">
+      <Position>1</Position>
+      <DataType>varchar(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="11" name="created_at">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="11" name="updated_at">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="11" name="address">
+      <Position>5</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="30" parent="11" name="country">
+      <Position>6</Position>
+      <DataType>varchar(3)|0</DataType>
+    </column>
+    <column id="31" parent="11" name="currency">
+      <Position>7</Position>
+      <DataType>varchar(5)|0</DataType>
+    </column>
+    <index id="32" parent="11" name="index_companies_on_code">
+      <ColNames>code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="11" name="index_companies_on_code">
+      <ColNames>code</ColNames>
+      <UnderlyingIndexName>index_companies_on_code</UnderlyingIndexName>
+    </key>
+    <column id="34" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="12" name="material">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="36" parent="12" name="language">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="37" parent="12" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="38" parent="12" name="index_material_names_on_language_and_material">
+      <ColNames>language
+material</ColNames>
+    </index>
+    <key id="39" parent="12" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="13" name="material">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="42" parent="13" name="uom">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="43" parent="13" name="material_group">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="44" parent="13" name="material_type">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="45" parent="13" name="index_materials_on_material">
+      <ColNames>material</ColNames>
+    </index>
+    <key id="46" parent="13" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="14" name="material">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="49" parent="14" name="plant">
+      <Position>3</Position>
+      <DataType>varchar(4)|0</DataType>
+    </column>
+    <column id="50" parent="14" name="ncm">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="51" parent="14" name="batch_managed">
+      <Position>5</Position>
+      <DataType>varchar(1)|0</DataType>
+    </column>
+    <column id="52" parent="14" name="abc_indicator">
+      <Position>6</Position>
+      <DataType>varchar(1)|0</DataType>
+    </column>
+    <index id="53" parent="14" name="index_plant_materials_on_material_and_plant">
+      <ColNames>material
+plant</ColNames>
+    </index>
+    <key id="54" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="56" parent="15" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="57" parent="15" name="running">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="58" parent="15" name="begin">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="59" parent="15" name="end">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="60" parent="15" name="created_at">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="15" name="updated_at">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="62" parent="15" name="index_running_batches_on_name">
+      <ColNames>name</ColNames>
+    </index>
+    <key id="63" parent="15" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="64" parent="16" name="version">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="65" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="17" name="material">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="67" parent="17" name="plant">
+      <Position>3</Position>
+      <DataType>varchar(4)|0</DataType>
+    </column>
+    <column id="68" parent="17" name="stloc">
+      <Position>4</Position>
+      <DataType>varchar(4)|0</DataType>
+    </column>
+    <column id="69" parent="17" name="inventory_block">
+      <Position>5</Position>
+      <DataType>varchar(1)|0</DataType>
+    </column>
+    <column id="70" parent="17" name="unrestricted_stock">
+      <Position>6</Position>
+      <DataType>decimal(15,3)|0</DataType>
+    </column>
+    <column id="71" parent="17" name="quality_stock">
+      <Position>7</Position>
+      <DataType>decimal(15,3)|0</DataType>
+    </column>
+    <column id="72" parent="17" name="blocked_stock">
+      <Position>8</Position>
+      <DataType>decimal(15,3)|0</DataType>
+    </column>
+    <index id="73" parent="17" name="index_stloc_materials_on_material_and_plant_and_stloc">
+      <ColNames>material
+plant
+stloc</ColNames>
+    </index>
+    <key id="74" parent="17" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="76" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="77" parent="18" name="description">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="78" parent="18" name="created_at">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="18" name="updated_at">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="80" parent="18" name="index_tables_on_name">
+      <ColNames>name</ColNames>
+    </index>
+    <key id="81" parent="18" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="82" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="19" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="84" parent="19" name="password_digest">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="85" parent="19" name="created_at">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="19" name="updated_at">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="87" parent="19" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="88" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="89" parent="20" name="material">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="90" parent="20" name="plant">
+      <Position>3</Position>
+      <DataType>varchar(4)|0</DataType>
+    </column>
+    <column id="91" parent="20" name="valuation">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="92" parent="20" name="use">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="93" parent="20" name="origin">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="94" parent="20" name="price_control">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="95" parent="20" name="moving_average_price">
+      <Position>8</Position>
+      <DataType>decimal(13,2)|0</DataType>
+    </column>
+    <column id="96" parent="20" name="standard_price">
+      <Position>9</Position>
+      <DataType>decimal(13,2)|0</DataType>
+    </column>
+    <column id="97" parent="20" name="price_unit">
+      <Position>10</Position>
+      <DataType>decimal(18,2)|0</DataType>
+    </column>
+    <column id="98" parent="20" name="stock_amount">
+      <Position>11</Position>
+      <DataType>decimal(18,2)|0</DataType>
+    </column>
+    <column id="99" parent="20" name="stock_qty">
+      <Position>12</Position>
+      <DataType>decimal(18,2)|0</DataType>
+    </column>
+    <column id="100" parent="20" name="status">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="101" parent="20" name="created_at">
+      <Position>14</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="20" name="updated_at">
+      <Position>15</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="103" parent="20" name="index_valuation_materials_on_material_and_plant_and_valuation">
+      <ColNames>material
+plant
+valuation</ColNames>
+    </index>
+    <key id="104" parent="20" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

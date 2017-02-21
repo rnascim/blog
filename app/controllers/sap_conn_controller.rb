@@ -3,7 +3,7 @@ class SapConnController < ApplicationController
 
 	def load
 		# puts @sap_param		
-		puts "Initiate checking and loading SAP data"
+		puts 'Initiate checking and loading SAP data'
 		SapLoadWorker.perform_async
 	end
 
