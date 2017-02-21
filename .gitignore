@@ -20,9 +20,11 @@ config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 
-#Ignore all WAR and VBA files
+#Ignore all WAR, VBA, SAP Destination files
 /*.war
 /*.vba
+/*.jcoDestination
+
 
 # Ignore Git Token
 git_token
