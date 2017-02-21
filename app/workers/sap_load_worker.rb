@@ -37,10 +37,10 @@ class SapLoadWorker
 		# end		
 
 		#Tabelas SAP a serem carregadas
-    # load_t001
-    # load_mard
-    # load_marc
-    # load_mbew
+    load_t001
+    load_mard
+    load_marc
+    load_mbew
 		load_mara
 		load_makt
 

@@ -4,8 +4,6 @@ class CreateMaterialNames < ActiveRecord::Migration[5.0]
       t.string :material
       t.string :language
       t.string :name
-
-      t.timestamps
     end
     add_index :material_names, [:language, :material]
   end
