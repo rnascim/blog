@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  material: MyString
+  use: 1
+  origen: 1
+  price_control: MyString
+  moving_average_price: 
+  moving_average_price: 
+  standard_price: 
+  standard_price: 
+  price_unit: 
+  price_unit: 
+  stock_amount: 
+  stock_amount: 
+  stock_qty: 
+  stock_qty: 
+  status: MyString
+
+two:
+  material: MyString
+  use: 1
+  origen: 1
+  price_control: MyString
+  moving_average_price: 
+  moving_average_price: 
+  standard_price: 
+  standard_price: 
+  price_unit: 
+  price_unit: 
+  stock_amount: 
+  stock_amount: 
+  stock_qty: 
+  stock_qty: 
+  status: MyString

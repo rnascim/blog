@@ -24,6 +24,7 @@ config/environments/*.local.yml
 /*.war
 /*.vba
 /*.jcoDestination
+/*.trc
 
 
 # Ignore Git Token

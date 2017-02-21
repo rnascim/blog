@@ -1,0 +1,2 @@
+class ValuationMaterial < ApplicationRecord
+end

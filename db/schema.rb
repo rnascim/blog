@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221141001) do
+ActiveRecord::Schema.define(version: 20170221155520) do
 
 # Could not dump table "companies" because of following StandardError
 #   Unknown type 'varchar(4)' for column 'code'
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20170221141001) do
 #   wrong number of arguments (1 for 2)
 
 # Could not dump table "users" because of following ArgumentError
+#   wrong number of arguments (1 for 2)
+
+# Could not dump table "valuation_materials" because of following ArgumentError
 #   wrong number of arguments (1 for 2)
 
 end

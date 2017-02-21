@@ -9,17 +9,19 @@ class SapLoadWorker
 
   def perform(*args)
 		puts "#{Time.now} - From Sidekiq: " + Time.now.to_s
-		newly_created = false
+		# newly_created = false
 
 		batch = RunningBatch.find_by_name(BATCH_NAME_SAP_LOAD)
 		if batch
 			if batch.running 
 				puts "#{Time.now} - Bath '#{BATCH_NAME_SAP_LOAD}' is still running"
 				return
+			else
+				batch = RunningBatch.new
 			end
 		else
 			batch = RunningBatch.new
-			newly_created = true
+			# newly_created = true
 		end
 
 		# Salva o horário de processamento do lote
@@ -28,22 +30,22 @@ class SapLoadWorker
 		batch.begin 	= Time.now
 		batch.end   	= nil
 
-		if newly_created
+		# if newly_created
 			batch.save
-		else
-			batch.update
-		end		
+		# else
+		# 	batch.update
+		# end		
 
 		#Tabelas SAP a serem carregadas
     load_t001
     load_mard
     load_marc
+    load_mbew
 		load_mara
-
 
 		batch.running = false
 		batch.end = Time.now
-		batch.update
+		batch.save
 
   end
 
@@ -149,6 +151,34 @@ class SapLoadWorker
 	    end  		
 	    puts "#{Time.now} - Table MARC - finished saving to local database"
   	end
+
+  	def load_mbew
+  		puts "#{Time.now} - Table MBEW - read begin"
+  		table = sap_read_table("MBEW", 
+  													["MATNR","BWKEY","BWTAR","MTUSE","MTORG","VPRSV","VERPR","STPRS","PEINH","SALK3","LBKUM","PSTAT"], 
+  													["BWKEY IN ('8014', '8015', 'BR11', 'BR14')"])
+
+  		puts "#{Time.now} - Table MBEW - finished reading. Saving to local database"
+			ValuationMaterial.delete_all
+	    table.each do |t|
+	    	obj = ValuationMaterial.new
+				obj.material             = t["MATNR"]
+				obj.plant                = t["BWKEY"]
+				obj.valuation					   = t["BWTAR"]
+				obj.use                  = t["MTUSE"]
+				obj.origin               = t["MTORG"]
+				obj.price_control		     = t["VPRSV"]
+				obj.moving_average_price = t["VERPR"]
+				obj.standard_price			 = t["STPRS"]
+				obj.price_unit				   = t["PEINH"]
+				obj.stock_amount				 = t["SALK3"]
+				obj.stock_qty    				 = t["LBKUM"]
+				obj.status							 = t["PSTAT"]
+				obj.save
+	    end  		
+	    puts "#{Time.now} - Table MBEW - finished saving to local database"
+  	end
+
 
   	def sap_read_table(table_name, field_array, filter_array)
 			java_import com.sap.conn.jco.JCoDestinationManager
