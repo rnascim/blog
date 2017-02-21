@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  root 'home#index'
+
   resources :companies
   resources :users
   mount Sidekiq::Web, at: '/sidekiq'

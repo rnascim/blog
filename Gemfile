@@ -31,3 +31,4 @@ gem 'config'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'devise', '~> 4.2'
