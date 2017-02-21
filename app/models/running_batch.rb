@@ -1,0 +1,2 @@
+class RunningBatch < ApplicationRecord
+end

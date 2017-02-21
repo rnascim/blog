@@ -2,24 +2,59 @@ class SapLoadWorker
   include Sidekiq::Worker
   # sidekiq_options retry: false
   sidekiq_options queue: "high"
+  # Rails.logger = Sidekiq::Logging.logger
+  # ActiveRecord::Base.logger = Sidekiq::Logging.logger
+
+  BATCH_NAME_SAP_LOAD = "SAP table load"
 
   def perform(*args)
-    puts "******* From Sidekiq: " + Time.now.to_s
+		puts "#{Time.now} - From Sidekiq: " + Time.now.to_s
+		newly_created = false
+
+		batch = RunningBatch.find_by_name(BATCH_NAME_SAP_LOAD)
+		if batch
+			if batch.running 
+				puts "#{Time.now} - Bath '#{BATCH_NAME_SAP_LOAD}' is still running"
+				return
+			end
+		else
+			batch = RunningBatch.new
+			newly_created = true
+		end
+
+		# Salva o horário de processamento do lote
+		batch.name    = BATCH_NAME_SAP_LOAD
+		batch.running = true
+		batch.begin 	= Time.now
+		batch.end   	= nil
+
+		if newly_created
+			batch.save
+		else
+			batch.update
+		end		
+
+		#Tabelas SAP a serem carregadas
     load_t001
     load_mard
     load_marc
 		load_mara
 
+
+		batch.running = false
+		batch.end = Time.now
+		batch.update
+
   end
 
   private
   	def load_t001
-  		puts "*** Table T001 - read begin"
+  		puts "#{Time.now} - Table T001 - read begin"
   		t001 = sap_read_table("T001", 
   												 ["BUKRS", "BUTXT", "ORT01", "LAND1", "WAERS"], 
   												 nil)
 
-  		puts "*** Table T001 - finished reading. Saving to local database"
+  		puts "#{Time.now} - Table T001 - finished reading. Saving to local database"
 			Company.delete_all
 	    t001.each do |t|
 	    	c = Company.new
@@ -31,16 +66,16 @@ class SapLoadWorker
 				c.save
 	    end  		
 
-	    puts "*** Table T001 - finished saving to local database"
+	    puts "#{Time.now} - Table T001 - finished saving to local database"
   	end
 
   	def load_mard
-  		puts "*** Table MARD - read begin"
+  		puts "#{Time.now} - Table MARD - read begin"
   		table = sap_read_table("MARD", 
   													["MATNR", "WERKS", "LGORT", "SPERR", "LABST", "INSME", "SPEME"], 
   													["WERKS IN ('8014', '8015', 'BR11', 'BR14')"])
 
-			puts "*** Table MARD - finished reading. Saving to local database"
+			puts "#{Time.now} - Table MARD - finished reading. Saving to local database"
 			StlocMaterial.delete_all
 	    table.each do |t|
 	    	obj = StlocMaterial.new
@@ -53,12 +88,12 @@ class SapLoadWorker
 				obj.blocked_stock      = t["SPEME"]
 				obj.save
 	    end  		
-	    puts "*** Table MARD - finished saving to local database"
+	    puts "#{Time.now} - Table MARD - finished saving to local database"
   	end
 
   	def load_mara
 
-  		puts "*** Table MARA - Assemble Material filter"
+  		puts "#{Time.now} - Table MARA - Assemble Material filter"
   		
   		@material_array = Array.new
   		@material_array << "("
@@ -69,24 +104,20 @@ class SapLoadWorker
 
   		if @material_array.count > 0
   			temp = @material_array[-1]
-  			# puts temp
   			temp = temp[0, temp.length - 3]
-  			# puts temp
   			@material_array[-1] = temp
   			@material_array << ")"
-  			puts @material_array[-2] 
-  			puts @material_array[-1]
   		else
   			@material_array  = nil
   		end
   		# puts(@material_array.count)
 
-  		puts "*** Table MARA - read begin"
+  		puts "#{Time.now} - Table MARA - read begin"
   		table = sap_read_table("MARA", 
   													["MATNR", "MEINS", "MATKL", "MTART"], 
   													@material_array )
 
-  		puts "*** Table MARA - finished reading. Saving to local database"
+  		puts "#{Time.now} - Table MARA - finished reading. Saving to local database"
 			Material.delete_all
 	    table.each do |t|
 	    	obj = Material.new
@@ -96,16 +127,16 @@ class SapLoadWorker
 				obj.material_type      = t["MTART"]
 				obj.save
 	    end  		
-	    puts "*** Table MARA - finished saving to local database"
+	    puts "#{Time.now} - Table MARA - finished saving to local database"
   	end
 
   	def load_marc
-  		puts "*** Table MARC - read begin"
+  		puts "#{Time.now} - Table MARC - read begin"
   		table = sap_read_table("MARC", 
   													["MATNR", "WERKS", "STEUC", "XCHPF", "ABCIN"], 
   													["WERKS IN ('8014', '8015', 'BR11', 'BR14')"])
 
-  		puts "*** Table MARC - finished reading. Saving to local database"
+  		puts "#{Time.now} - Table MARC - finished reading. Saving to local database"
 			PlantMaterial.delete_all
 	    table.each do |t|
 	    	obj = PlantMaterial.new
@@ -116,7 +147,7 @@ class SapLoadWorker
 				obj.abc_indicator      = t["ABCIN"]
 				obj.save
 	    end  		
-	    puts "*** Table MARC - finished saving to local database"
+	    puts "#{Time.now} - Table MARC - finished saving to local database"
   	end
 
   	def sap_read_table(table_name, field_array, filter_array)
