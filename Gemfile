@@ -32,3 +32,4 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'devise', '~> 4.2'
+gem 'simple_form', '~> 3.4'
