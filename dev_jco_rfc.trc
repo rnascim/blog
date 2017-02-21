@@ -1,0 +1,143 @@
+
+**** Error file opened at 20170221 044421 Western European Time Rel. 3.0.16 (2016-12-06) [721.800]
+Error:  >Tue Feb 21 04:44:21,436<    RfcException:
+	message: Connect to SAP gateway failed
+Connection parameters: TYPE=A DEST=NFE ASHOST=ci2.corning.com SYSNR=00 PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner 'ci2.corning.com:3300' not reached
+TIME        Tue Feb 21 04:44:21 2017
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3283
+DETAIL      NiPConnect2: 10.42.57.89:3300
+SYSTEM CALL connect
+ERRNO       61
+ERRNO TEXT  Connection refused
+COUNTER     3
+
+	return code: RFC_FAILURE (1)
+	error group: 102
+	key: RFC_ERROR_COMMUNICATION
+
+Error:  >Tue Feb 21 04:44:21,577<    RfcException:
+	message: Connect to SAP gateway failed
+Connection parameters: TYPE=A DEST=NFE ASHOST=ci2.corning.com SYSNR=00 PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner 'ci2.corning.com:3300' not reached
+TIME        Tue Feb 21 04:44:21 2017
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3283
+DETAIL      NiPConnect2: 10.42.57.89:3300
+SYSTEM CALL connect
+ERRNO       61
+ERRNO TEXT  Connection refused
+COUNTER     5
+
+	return code: RFC_FAILURE (1)
+	error group: 102
+	key: RFC_ERROR_COMMUNICATION
+
+Error:  >Tue Feb 21 04:45:03,707<    RfcException:
+	message: Connect to SAP gateway failed
+Connection parameters: TYPE=A DEST=NFE ASHOST=ci2.corning.com SYSNR=00 PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner 'ci2.corning.com:3300' not reached
+TIME        Tue Feb 21 04:45:03 2017
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3283
+DETAIL      NiPConnect2: 10.42.57.89:3300
+SYSTEM CALL connect
+ERRNO       61
+ERRNO TEXT  Connection refused
+COUNTER     2
+
+	return code: RFC_FAILURE (1)
+	error group: 102
+	key: RFC_ERROR_COMMUNICATION
+
+Error:  >Tue Feb 21 04:45:14,603<    >RfcGetException rc (7) message: Client 100 is not available in this system
+<RfcGetException
+
+
+Error:  >Tue Feb 21 04:45:15,309<    >RfcGetException rc (7) message: Client 100 is not available in this system
+<RfcGetException
+
+
+
+**** Error file opened at 20170221 051751 Western European Time Rel. 3.0.16 (2016-12-06) [721.800]
+Error:  >Tue Feb 21 05:17:51,233<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+Error:  >Tue Feb 21 05:17:53,333<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+Error:  >Tue Feb 21 05:18:37,411<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+Error:  >Tue Feb 21 05:18:37,620<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+Error:  >Tue Feb 21 05:19:04,306<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+
+**** Error file opened at 20170221 061250 Western European Time Rel. 3.0.16 (2016-12-06) [721.800]
+Error:  >Tue Feb 21 06:12:50,245<    >RfcGetException rc (7) message: The WHERE condition has an unexpected format.
+<RfcGetException
+
+
+
+**** Error file opened at 20170221 063913 Western European Time Rel. 3.0.16 (2016-12-06) [721.800]
+Error:  >Tue Feb 21 06:39:13,574<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+
+**** Error file opened at 20170221 064333 Western European Time Rel. 3.0.16 (2016-12-06) [721.800]
+Error:  >Tue Feb 21 06:43:33,177<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+Error:  >Tue Feb 21 06:45:59,759<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+
+**** Error file opened at 20170221 065254 Western European Time Rel. 3.0.16 (2016-12-06) [721.800]
+Error:  >Tue Feb 21 06:52:54,891<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+Error:  >Tue Feb 21 06:55:47,394<    >RfcGetException rc (7) message: A dynamically specified column name is unknown.
+<RfcGetException
+
+
+
+**** Error file opened at 20170221 070711 Western European Time Rel. 3.0.16 (2016-12-06) [721.800]
+Error:  >Tue Feb 21 07:07:11,445<    >RfcGetException rc (7) message: Error in module RSQL of the database interface
+<RfcGetException
+
+
+Error:  >Tue Feb 21 07:08:19,315<    >RfcGetException rc (7) message: Error in module RSQL of the database interface
+<RfcGetException
+
+

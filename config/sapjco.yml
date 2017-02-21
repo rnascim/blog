@@ -1,0 +1,61 @@
+destinations:
+ development:
+  jco.destination.pool_capacity: 15
+  jco.client.lang: en
+  jco.client.ashost: 5.189.146.49
+  jco.client.user: rogerio
+  jco.client.passwd: wolvie
+  jco.destination.peak_limit: 10
+  jco.client.sysnr: 00
+  jco.client.client: 100  
+  jco.client.trace: 1
+  jco.client.abap_debug: 1
+  # jco.server.trace: 1
+
+ test:
+  jco.destination.pool_capacity: 15
+  jco.client.lang: en
+  jco.client.ashost: 5.189.146.49
+  jco.client.user: rogerio
+  jco.client.passwd: wolvie
+  jco.destination.peak_limit: 10
+  jco.client.sysnr: 00
+  jco.client.client: 100  
+  jco.client.trace: 1
+  jco.client.abap_debug: 1
+  # jco.server.trace: 1
+  
+  # jco.client.client: 100
+  # jco.client.user: rogerio
+  # jco.client.passwd: wolvie
+  # jco.client.sysnr: 00
+  # jco.client.ashost: 5.189.146.49
+  # # jco.client.lang: EN
+  # # jco.client.gwhost: 5.189.146.49
+  # jco.client.gwserv: 3200
+  # # jco.client.mshost: 3200
+  # jco.client.r3name: NPL
+  # # jco.client.tphost: 3200
+  # jco.client.trace: 1
+  # jco.client.abap_debug: 1
+  # jco.destination.peak_limit: 30 
+  # jco.destination.pool_capacity: 15 
+  # jco.destination.expiration_time: 60000 
+  # jco.destination.expiration_check_period: 30000
+  # jco.destination.max_get_client_time: 5000
+  # jco.server.repository_destination: NPL
+
+production:
+ jco.client.ashost: rogerionascimento.com
+ jco.client.sysnr: '0'
+ jco.client.client: '100'
+ jco.client.lang: EN
+ jco.client.user: rogerio
+ jco.client.passwd: wolvie
+ # jco.client.gwhost: rogerionascimento.com
+ # jco.client.gwserv: sapgw00
+ jco.destination.peak_limit: 30
+ jco.destination.pool_capacity: 15
+ jco.destination.expiration_time: 60000
+ jco.destination.expiration_check_period: 30000
+ jco.destination.max_get_client_time: 5000

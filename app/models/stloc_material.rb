@@ -1,0 +1,2 @@
+class StlocMaterial < ApplicationRecord
+end

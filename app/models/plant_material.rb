@@ -1,0 +1,2 @@
+class PlantMaterial < ApplicationRecord
+end
