@@ -37,11 +37,12 @@ class SapLoadWorker
 		# end		
 
 		#Tabelas SAP a serem carregadas
-    load_t001
-    load_mard
-    load_marc
-    load_mbew
+    # load_t001
+    # load_mard
+    # load_marc
+    # load_mbew
 		load_mara
+		load_makt
 
 		batch.running = false
 		batch.end = Time.now
@@ -177,6 +178,49 @@ class SapLoadWorker
 				obj.save
 	    end  		
 	    puts "#{Time.now} - Table MBEW - finished saving to local database"
+  	end
+
+  	def load_makt
+  		puts "#{Time.now} - Table MAKT - read begin (for #{@material_array.count} materials)"
+  		table = sap_read_table("MAKT", 
+  													["MATNR","SPRAS","MAKTX"], 
+  													@material_array)
+
+  		puts "#{Time.now} - Table MAKT - finished reading. Saving to local database"
+			MaterialName.delete_all
+	    table.each do |t|
+	    	obj = MaterialName.new
+				obj.material             = t["MATNR"]
+				case t["SPRAS"]
+				when "P"
+					obj.language         = "PT"
+				when "D"
+					obj.language         = "DE"
+				when "E"
+					obj.language         = "EN"
+				when "S"
+					obj.language         = "ES"
+				when "F"
+					obj.language         = "FR"
+				when "3"
+					obj.language         = "KO"
+				when "B"
+					obj.language         = "HE"
+				when "T"
+					obj.language         = "TR"
+				when "1"
+					obj.language         = "ZH"	
+				when "I"
+					obj.language         = "IT"	
+				when "L"
+					obj.language         = "PL"	
+				else
+					obj.language         = t["SPRAS"]
+				end
+				obj.name    					   = t["MAKTX"]
+				obj.save
+	    end  		
+	    puts "#{Time.now} - Table MAKT - finished saving to local database"
   	end
 
 
