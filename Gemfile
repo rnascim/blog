@@ -40,3 +40,6 @@ source 'https://rails-assets.org' do
 end
 
 gem 'sprockets-rails'
+
+#Dependency gem (for work with CentoOS)
+gem 'autoprefixer-rails'
