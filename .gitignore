@@ -27,6 +27,7 @@ config/environments/*.local.yml
 /*.trc
 /lib/libsapjco3.*
 /lib/sapjco3.jar
+/config/database.yml
 
 # Ignore Git Token
 git_token
