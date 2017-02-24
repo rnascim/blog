@@ -49,6 +49,7 @@ gem 'dry-validation', github: 'dry-rb/dry-validation'
 gem 'dry-configurable', github: 'dry-rb/dry-configurable' 
 gem 'dry-equalizer', github: 'dry-rb/dry-equalizer'
 gem 'dry-logic', github: 'dry-rb/dry-logic'
+gem 'dry-types', github: 'dry-rb/dry-types'
 
 
 
