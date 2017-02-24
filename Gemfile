@@ -9,7 +9,7 @@ end
 gem 'rails', '~> 5.0.1'
 gem 'activerecord-jdbc-adapter', github: 'jruby/activerecord-jdbc-adapter', branch: 'rails-5'
 gem 'listen'
-gem 'activerecord-jdbcmysql-adapter'
+gem 'activerecord-jdbcmysql-adapter', github: 'jruby/activerecord-jdbc-adapter'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
