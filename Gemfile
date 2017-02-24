@@ -29,7 +29,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'config'
 gem 'sidekiq'
-gem 'sinatra', require: false #, github: 'sinatra/sinatra'
+gem 'sinatra', require: false, github: 'sinatra/sinatra'
 gem 'slim'
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.4'
