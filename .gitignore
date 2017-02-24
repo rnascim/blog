@@ -25,7 +25,8 @@ config/environments/*.local.yml
 /*.vba
 /*.jcoDestination
 /*.trc
-/lib/*
+/lib/libsapjco3.jnilib
+/lib/sapjco3.jar
 
 # Ignore Git Token
 git_token
