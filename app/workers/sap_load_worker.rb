@@ -3,6 +3,7 @@ class SapLoadWorker
   sidekiq_options retry: false
   # sidekiq_options queue: 'high'
   
+
   # Rails.logger = Sidekiq::Logging.logger
   # ActiveRecord::Base.logger = Sidekiq::Logging.logger
 
