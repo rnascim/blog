@@ -216,6 +216,7 @@ DEPENDENCIES
   simple_form (~> 3.4)
   sinatra
   slim
+  sprockets-rails
   therubyrhino
   turbolinks (~> 5)
   tzinfo-data
