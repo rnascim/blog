@@ -52,6 +52,7 @@ gem 'dry-logic', github: 'dry-rb/dry-logic'
 gem 'dry-types', github: 'dry-rb/dry-types'
 gem 'dry-core', github: 'dry-rb/dry-core'
 gem 'dry-container', github: 'dry-rb/dry-container'
+gem 'inflecto', github: 'mbj/inflecto'
 
 
 
