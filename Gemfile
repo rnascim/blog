@@ -44,3 +44,4 @@ gem 'sprockets-rails'
 #Dependency gem (for work with CentoOS)
 gem 'autoprefixer-rails', github: 'ai/autoprefixer-rails'
 gem 'deep_merge', github: 'danielsdeleo/deep_merge'
+gem 'config', github: 'railsconfig/config'
