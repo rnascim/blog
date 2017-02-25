@@ -35,12 +35,16 @@ class SapLoadWorker
 		batch.save
 
 		#Tabelas SAP a serem carregadas
-    load_t001
-    load_mard
-    load_marc
-    load_mbew
-		load_mara
-		load_makt
+		begin
+	    load_t001
+	    load_mard
+	    load_marc
+	    load_mbew
+			load_mara
+			load_makt			
+		rescue Exception => e
+			puts "Exception #{e.to_s}"
+		end
 
 		batch.running = false
 		batch.end = Time.now
