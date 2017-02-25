@@ -1,6 +1,6 @@
 #!/bin/bash
 git add . 
-git commit -am"Test Message"
+#git commit -am"Test Message"
 targString=$( git commit -am"Test Message" | awk '{print $0}')
 
 if [[ $targString == *"nothing to commit"* ]]
