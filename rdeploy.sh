@@ -1,7 +1,12 @@
 #!/bin/bash
+if [[ $0 == "" ]] 
+then
+  echo -e "Git Commit comment missing "
+  exit 0
+fi
+
 git add . 
-#git commit -am"Test Message"
-targString=$( git commit -am"Test Message" | awk '{print $0}')
+targString=$( git commit -am"$0" | awk '{print $0}')
 
 if [[ $targString == *"nothing to commit"* ]]
 then
