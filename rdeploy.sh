@@ -1,7 +1,7 @@
 #!/bin/bash
 git add . 
 git commit -am"Test Message"
-targString=$( git commit -am"Test Message" | awk '{print $2}')
+targString=$( git commit -am"Test Message" | awk '{print $0}')
 git push origin master
 echo 'push: '$targString
 exit 0  
