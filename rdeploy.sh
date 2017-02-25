@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ $0 == "" ]] 
+if [[ $1 == "" ]] 
 then
   echo -e "Git Commit comment missing "
   exit 0
