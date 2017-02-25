@@ -1,4 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
+<section>
+<div>
+	<row>
+		<%= label(:company, :code) %></th>
+		<%=  @company.code %></th>
+	</row>	
+</div>
+<div>
+	<row>
+		<%= label(:company, :name) %></th>
+		<%=  @company.name %></th>
+	</row>	
+</div>
+<div>	
+	<row>
+		<%= label(:company, :address) %></th>
+		<%=  @company.address %></th>
+	</row>		
+</div>	
+<div>	
+	<row>
+		<%= label(:company, :country) %></th>
+		<%=  @company.country %></th>
+	</row>		
+</div>	
+<div>	
+	<row>
+		<%= label(:company, :currency) %></th>
+		<%=  @company.currency %></th>
+	</row>		
+</div>	
+</section>
 <%= link_to 'Back', companies_path %>

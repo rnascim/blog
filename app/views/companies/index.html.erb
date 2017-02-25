@@ -7,10 +7,7 @@
     <tr>
       <td>Company</td>
       <td>Name</td>
-      <td>Address</td>
-      <td>Country</td>
-      <td>Cur.</td>
-      <th colspan="3"></th>
+      <th>Action</th>
     </tr>
   </thead>
 
@@ -19,18 +16,9 @@
       <tr>
         <td><%= company.code %></td>
         <td><%= company.name %></td>
-        <td><%= company.address %></td>
-        <td><%= company.country %></td>
-        <td><%= company.currency %></td>
         <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
 
