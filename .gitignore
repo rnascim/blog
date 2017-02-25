@@ -23,6 +23,7 @@ config/environments/*.local.yml
 #Ignore all WAR, VBA, SAP Destination files
 /*.war
 /*.vba
+/vba*
 /*.jcoDestination
 /*.trc
 /lib/libsapjco3.*
