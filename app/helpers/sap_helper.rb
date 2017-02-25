@@ -1,3 +1,4 @@
+#SapHelper is added to the applicaton and is available to any view or controller
 module SapHelper
 
 	def sap_read_table(table_name, field_array, filter_array)
